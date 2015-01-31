@@ -25,9 +25,11 @@ Nwire, optionally, ensures that all projects have reference to MSBuild.StyleCop 
 ============
 Nwire is a console application that you can download by clicking here. Optionally, you can compile it by yourself basing on the source code provided. After obtaining Nwire.exe and LibGit2Sharp.dll file, copy them to the root directory where your projects are stored. For instance, if you have following projects:
 
+```
 C:\Code\MyAmazingProject\
 C:\Code\MyAnotherAmazingProject\
 C:\Code\MyNotSoAmazingProject\
+```
 
 Then, you should put Nwire.exe and LibGit2Sharp.dll in C:\Code directory, as Nwire scans through all directories (and subdirectories) where it is located.
 
