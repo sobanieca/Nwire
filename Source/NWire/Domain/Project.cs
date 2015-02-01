@@ -21,7 +21,7 @@
             if(!String.IsNullOrWhiteSpace(PackagesContent))
             {
                 XDocument document = XDocument.Parse(PackagesContent);
-                foreach(var packageXml in document.Elements("package"))
+                foreach(var packageXml in document.Descendants("package"))
                 {
                     NuGetPackage package = new NuGetPackage();
                     package.Name = packageXml.Attribute("id").Value;

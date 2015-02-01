@@ -55,13 +55,15 @@
     <Compile Include="Domain\ResultItem.cs" />
     <Compile Include="Domain\ScanResult.cs" />
     <Compile Include="Domain\Solution.cs" />
+    <Compile Include="Helpers\XmlHelper.cs" />
     <Compile Include="ModuleManager.cs" />
     <Compile Include="Modules\Abstract\Module.cs" />
     <Compile Include="Modules\Enums\EPriority.cs" />
     <Compile Include="Modules\GitCleanModule.cs" />
     <Compile Include="Modules\GitPullModule.cs" />
-    <Compile Include="Modules\GlobalNuGetConsistencyModule.cs" />
+    <Compile Include="Modules\NuGetConsistencyModule.cs" />
     <Compile Include="Modules\StyleCopEnabledModule.cs" />
+    <Compile Include="Modules\TreatWarningsAsErrorsModule.cs" />
     <Compile Include="NwireCore.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -5,11 +5,15 @@
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using System.Xml.Linq;
     using NWire.Domain;
+    using NWire.Helpers;
     using NWire.Modules.Abstract;
 
     public class StyleCopEnabledModule : Module
     {
+        private XmlHelper _xmlHelper = new XmlHelper();
+
         public override string Name
         {
             get { return "StyleCopEnabledCheck"; }
@@ -22,7 +26,7 @@
 
         public override void Run(Result result, ScanResult scanResult)
         {
-            throw new NotImplementedException();
+            _xmlHelper.ProjectsXmlNodePresenceRun("StyleCopEnabled", result, scanResult);
         }
     }
 }

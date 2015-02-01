@@ -16,24 +16,29 @@
 
         public List<ResultItem> ResultItems { get; set; }
 
-        public void AddResultItem(string repository, EMessageLevel level, string message)
+        public void AddResultItem(Repository repository, EMessageLevel level, string message)
         {
-            AddResultItem(repository, null, null, level, message);
+            AddResultItem("Repository", repository.DirectoryInfo.Name, level, message);
         }
 
-        public void AddResultItem(string repository, string solution, EMessageLevel level, string message)
+        public void AddResultItem(Solution solution, EMessageLevel level, string message)
         {
-            AddResultItem(repository, solution, null, level, message);
+            AddResultItem("Solution", solution.Name, level, message);
         }
 
-        public void AddResultItem(string repository, string solution, string project, EMessageLevel level, string message)
+        public void AddResultItem(Project project, EMessageLevel level, string message)
+        {
+            AddResultItem("Project", project.Name, level, message);
+        }
+
+        public void AddResultItem(string objectType, string objectName, EMessageLevel level, string message)
         {
             ResultItem resultItem = new ResultItem();
-            resultItem.RepositoryName = repository;
-            resultItem.SolutionName = solution;
-            resultItem.ProjectName = project;
+            resultItem.ObjectType = objectType;
+            resultItem.ObjectName = objectName;
             resultItem.MessageLevel = level;
             resultItem.Message = message;
+            ResultItems.Add(resultItem);
         }
     }
 }

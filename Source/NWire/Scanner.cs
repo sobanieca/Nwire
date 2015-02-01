@@ -19,8 +19,6 @@
 
         public void ScanDirectory(DirectoryInfo directory, ScanResult scanResult)
         {
-            Console.WriteLine("Scanning {0}...", directory.FullName);
-
             foreach(var file in directory.EnumerateFiles())
             {
                 string fileName = file.Name.ToLower();

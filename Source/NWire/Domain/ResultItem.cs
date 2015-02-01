@@ -7,11 +7,12 @@
 
     public class ResultItem
     {
-        public string RepositoryName { get; set; }
+        /// <summary>
+        /// Repository, solution, project, etc.
+        /// </summary>
+        public string ObjectType { get; set; }
 
-        public string SolutionName { get; set; }
-
-        public string ProjectName { get; set; }
+        public string ObjectName { get; set; }
 
         public string Message { get; set; }
 

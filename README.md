@@ -33,6 +33,10 @@ C:\Code\MyNotSoAmazingProject\
 
 Then, you should put Nwire.exe and LibGit2Sharp.dll in C:\Code directory, as Nwire scans through all directories (and subdirectories) where it is located.
 
-3. Contribute
+3. How does it work
+=============
+When you press R button, Nwire starts to go through all directories in it's current location and scans for all GIT repositories present (it bases on the .git directory presence), searches for all .sln files, and searches for all .csproj files. Then it performs all selected operations.
+
+4. Contribute
 =============
 If you found this application useful, but some features are missing for you - do not hesitate to clone the repo, add some features (or fix bugs ;)) and make a pull request. Thanks in advance!

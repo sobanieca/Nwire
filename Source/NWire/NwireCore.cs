@@ -81,11 +81,64 @@
         {
             Scanner scanner = new Scanner();
             Stopwatch sw = new Stopwatch();
+            Console.WriteLine();
             Console.WriteLine("Starting scan...");
             sw.Start();
             ScanResult scanResult = scanner.Scan();
             sw.Stop();
             Console.WriteLine("Finished scan in {0} ms", sw.ElapsedMilliseconds);
+
+            Result result = new Result();
+            List<Module> modules = ReadModules();
+
+            if (modules.Any(x => x.IsEnabled))
+            {
+                foreach (var module in modules)
+                {
+                    if (module.IsEnabled)
+                    {
+                        sw.Reset();
+                        sw.Start();
+                        Console.WriteLine("Running {0} module...", module.Name);
+                        module.Run(result, scanResult);
+                        sw.Stop();
+                        Console.WriteLine("Finished {0} in {1} ms", module.Name, sw.ElapsedMilliseconds);
+                    }
+                }
+
+                DisplayResult(result);
+            }
+            else
+            {
+                Console.WriteLine("[ERROR] Please choose at least one module!");
+            }
+        }
+
+        private void DisplayResult(Result result)
+        {
+            if(result.ResultItems.Count == 0)
+            {
+                Console.WriteLine("[SUCCESS] All projects look fine!");
+            }
+            else
+            {
+                foreach(var resultItem in result.ResultItems)
+                {
+                    Console.WriteLine("[{0}][{1}][{2}] {3}", resultItem.MessageLevel.ToString(), resultItem.ObjectType, resultItem.ObjectName, resultItem.Message);
+                }
+            }
+        }
+
+        private List<Module> ReadModules()
+        {
+            List<Module> result = new List<Module>();
+            foreach(var key in _moduleManager.Modules.Keys)
+            {
+                var module = _moduleManager.Modules[key];
+                result.Add(module);
+            }
+
+            return result.OrderByDescending(x => x.Priority).ToList();
         }
     }
 }

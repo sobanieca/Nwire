@@ -8,17 +8,17 @@
 
     public class ScanResult
     {
-        public List<Repository> Repositories { get; set; }
-
-        public List<Solution> Solutions { get; set; }
-
-        public List<Project> Projects { get; set; }
-
         public ScanResult()
         {
             Repositories = new List<Repository>();
             Solutions = new List<Solution>();
             Projects = new List<Project>();
         }
+
+        public List<Repository> Repositories { get; set; }
+
+        public List<Solution> Solutions { get; set; }
+
+        public List<Project> Projects { get; set; }
     }
 }
