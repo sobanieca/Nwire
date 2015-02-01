@@ -50,7 +50,7 @@
     <Compile Include="Domain\Enums\EMessageLevel.cs" />
     <Compile Include="Domain\NuGetPackage.cs" />
     <Compile Include="Domain\Project.cs" />
-    <Compile Include="Domain\Repository.cs" />
+    <Compile Include="Domain\GitRepository.cs" />
     <Compile Include="Domain\Result.cs" />
     <Compile Include="Domain\ResultItem.cs" />
     <Compile Include="Domain\ScanResult.cs" />

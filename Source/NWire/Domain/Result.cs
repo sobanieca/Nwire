@@ -16,7 +16,7 @@
 
         public List<ResultItem> ResultItems { get; set; }
 
-        public void AddResultItem(Repository repository, EMessageLevel level, string message)
+        public void AddResultItem(GitRepository repository, EMessageLevel level, string message)
         {
             AddResultItem("Repository", repository.DirectoryInfo.Name, level, message);
         }

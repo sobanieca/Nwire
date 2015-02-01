@@ -10,12 +10,12 @@
     {
         public ScanResult()
         {
-            Repositories = new List<Repository>();
+            Repositories = new List<GitRepository>();
             Solutions = new List<Solution>();
             Projects = new List<Project>();
         }
 
-        public List<Repository> Repositories { get; set; }
+        public List<GitRepository> Repositories { get; set; }
 
         public List<Solution> Solutions { get; set; }
 

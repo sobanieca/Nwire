@@ -21,7 +21,7 @@
                 {
                     _modules = new Dictionary<int, NWire.Modules.Abstract.Module>();
                     int counter = 1;
-                    foreach(var type in Assembly.GetExecutingAssembly().GetTypes())
+                    foreach(var type in Assembly.GetExecutingAssembly().GetTypes().OrderBy(x => x.Name))
                     {
                         if(type.IsSubclassOf(typeof(NWire.Modules.Abstract.Module)) && !type.IsAbstract)
                         {

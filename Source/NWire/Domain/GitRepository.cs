@@ -7,7 +7,7 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    public class Repository
+    public class GitRepository
     {
         public DirectoryInfo DirectoryInfo { get; set; }
     }

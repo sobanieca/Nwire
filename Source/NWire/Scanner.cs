@@ -12,7 +12,7 @@
             ScanResult scanResult = new ScanResult();
             string location = Assembly.GetExecutingAssembly().Location;
             DirectoryInfo di = new DirectoryInfo(Path.GetDirectoryName(location));
-            ScanDirectory(di, scanResult);
+            ScanDirectory(di.Parent, scanResult);
 
             return scanResult;
         }
@@ -51,7 +51,7 @@
             {
                 if(subdirectory.Name.ToLower() == ".git")
                 {
-                    Repository repository = new Repository();
+                    GitRepository repository = new GitRepository();
                     repository.DirectoryInfo = directory;
                     scanResult.Repositories.Add(repository);
                 }
