@@ -23,7 +23,7 @@ Nwire, optionally, ensures that all projects have reference to MSBuild.StyleCop 
 
 2. Usage
 ============
-Nwire is a console application that you can download by clicking here. Optionally, you can compile it by yourself basing on the source code provided. After obtaining file, unzip it and copy folder to the root directory where your projects are stored. For instance, if you have following projects:
+Nwire is a console application that you can download it [here](https://github.com/sobanieca/Nwire/blob/master/Bin/Nwire.zip). Optionally, you can compile it by yourself basing on the source code provided. After obtaining file, unzip it and copy folder to the root directory where your projects are stored. For instance, if you have following projects:
 
 ```
 C:\Code\MyAmazingProject\
