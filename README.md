@@ -15,7 +15,7 @@ If you haven't performed local commits, Nwire will pull all changes from remote 
 
 1.3 Cleaning folders
 ------------
-If you don't have any uncommitted changes, Nwire can perform "git clean" and "git reset --hard" command for all projects (if there are no uncommitted changes), so that you can ensure that your source code works the same way for other members of your team as for you
+If you don't have any uncommitted changes, Nwire can perform "git clean" and "git reset --hard" command for all projects (if there are no uncommitted changes), so that you can ensure that your source code works the same way for other members of your team as for you. [REMARK] Unfortunately, there is not "git clean -xdf" command available in current version of libgit2sharp, so clean doesn't work as expected (it doesn't remove build folders)
 
 1.4 Checking StyleCop presence
 ------------
@@ -31,7 +31,7 @@ C:\Code\MyAnotherAmazingProject\
 C:\Code\MyNotSoAmazingProject\
 ```
 
-Then, you should put Nwire folder in C:\Code directory, as Nwire scans through all directories (and subdirectories) where it is located.
+Then, you should put Nwire folder in C:\Code directory, as Nwire scans through all directories (and subdirectories) where it is located. [REMARK] This is most important step, so ensure that Nwire.exe is located under C:\Code\Nwire\Nwire.exe.
 
 3. How does it work
 =============
