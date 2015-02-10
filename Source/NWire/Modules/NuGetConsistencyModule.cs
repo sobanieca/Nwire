@@ -9,7 +9,7 @@
     using NWire.Domain.Enums;
     using NWire.Modules.Abstract;
 
-    public class NuGetConsistencyModule : Module
+    internal class NuGetConsistencyModule : Module
     {
         public override string Name
         {

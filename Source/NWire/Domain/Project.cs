@@ -10,6 +10,8 @@
     {
         public string Name { get; set; }
 
+        public DirectoryInfo DirectoryInfo { get; set; }
+
         public string CsProjContent { get; set; }
 
         public string PackagesContent { get; set; }
@@ -18,10 +20,10 @@
         {
             List<NuGetPackage> result = new List<NuGetPackage>();
 
-            if(!String.IsNullOrWhiteSpace(PackagesContent))
+            if (!String.IsNullOrWhiteSpace(PackagesContent))
             {
                 XDocument document = XDocument.Parse(PackagesContent);
-                foreach(var packageXml in document.Descendants("package"))
+                foreach (var packageXml in document.Descendants("package"))
                 {
                     NuGetPackage package = new NuGetPackage();
                     package.Name = packageXml.Attribute("id").Value;

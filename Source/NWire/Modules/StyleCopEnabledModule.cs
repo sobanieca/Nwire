@@ -10,7 +10,7 @@
     using NWire.Helpers;
     using NWire.Modules.Abstract;
 
-    public class StyleCopEnabledModule : Module
+    internal class StyleCopEnabledModule : Module
     {
         private XmlHelper _xmlHelper = new XmlHelper();
 

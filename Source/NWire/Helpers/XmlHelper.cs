@@ -9,7 +9,7 @@
     using NWire.Domain;
     using NWire.Domain.Enums;
 
-    public class XmlHelper
+    internal class XmlHelper
     {
         public void ProjectsXmlNodePresenceRun(string nodeName, Result result, ScanResult scanResult)
         {

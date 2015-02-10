@@ -11,7 +11,7 @@ using NWire.Domain.Enums;
 using NWire.Helpers;
 using NWire.Modules.Abstract;
 
-    public class TreatWarningsAsErrorsModule : Module
+    internal class TreatWarningsAsErrorsModule : Module
     {
         private XmlHelper _xmlHelper = new XmlHelper();
 

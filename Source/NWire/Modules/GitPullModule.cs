@@ -11,7 +11,7 @@
     using NWire.Modules.Abstract;
     using NWire.Modules.Enums;
 
-    public class GitPullModule : Module
+    internal class GitPullModule : Module
     {
         public GitPullModule()
         {
@@ -47,10 +47,10 @@
                     {
                         if (repo.Head.TrackingDetails.AheadBy == 0)
                         {
-                            Console.WriteLine("Pulling changes for repo: {0}", gitRepository.DirectoryInfo.FullName);
+                            Output.WriteLine("Pulling changes for repo: {0}", gitRepository.DirectoryInfo.FullName);
                             repo.Fetch("origin", fetchOptions);
                             Commit latestCommit = repo.Head.TrackedBranch.Commits.FirstOrDefault();
-                            if(latestCommit != null)
+                            if (latestCommit != null)
                             {
                                 repo.Merge(latestCommit, new Signature(username, username, new DateTimeOffset(DateTime.Now)));
                             }
@@ -72,11 +72,11 @@
         {
             FetchOptions result = new FetchOptions();
 
-            Console.WriteLine("Provide your GIT username and press ENTER");
+            Output.WriteLine("Provide your GIT username and press ENTER");
             string providedUsername = Console.ReadLine();
-            Console.WriteLine("Provide your GIT password and press ENTER");
+            Output.WriteLine("Provide your GIT password and press ENTER");
             string providedPassword = ReadPassword();
-            Console.WriteLine();
+            Output.WriteLine();
 
             result.CredentialsProvider = (_url, _user, _cred) => new UsernamePasswordCredentials
             {
@@ -113,6 +113,11 @@
                 }
             }
             while (key.Key != ConsoleKey.Enter);
+
+            for (int i = 0; i < result.Length; i++)
+            {
+                Console.Write("\b \b");
+            }
 
             return result;
         }

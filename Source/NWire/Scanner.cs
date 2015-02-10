@@ -5,7 +5,7 @@
     using System.Reflection;
     using NWire.Domain;
 
-    public class Scanner
+    internal class Scanner
     {
         public ScanResult Scan()
         {
@@ -19,7 +19,7 @@
 
         public void ScanDirectory(DirectoryInfo directory, ScanResult scanResult)
         {
-            foreach(var file in directory.EnumerateFiles())
+            foreach (var file in directory.EnumerateFiles())
             {
                 string fileName = file.Name.ToLower();
                 if (fileName.EndsWith(".sln"))
@@ -27,6 +27,7 @@
                     Solution sln = new Solution();
                     sln.Name = file.Name.Replace(".sln", String.Empty);
                     sln.SlnContent = file.OpenText().ReadToEnd();
+                    sln.DirectoryInfo = directory;
                     scanResult.Solutions.Add(sln);
                 }
 
@@ -34,10 +35,11 @@
                 {
                     Project proj = new Project();
                     proj.Name = file.Name.Replace(".csproj", String.Empty);
+                    proj.DirectoryInfo = directory;
                     proj.CsProjContent = file.OpenText().ReadToEnd();
 
                     FileInfo[] packagesFiles = directory.GetFiles("packages.config");
-                    if(packagesFiles.Length > 0)
+                    if (packagesFiles.Length > 0)
                     {
                         FileInfo packagesFile = packagesFiles[0];
                         proj.PackagesContent = packagesFile.OpenText().ReadToEnd();
@@ -47,9 +49,9 @@
                 }
             }
 
-            foreach(var subdirectory in directory.EnumerateDirectories())
+            foreach (var subdirectory in directory.EnumerateDirectories())
             {
-                if(subdirectory.Name.ToLower() == ".git")
+                if (subdirectory.Name.ToLower() == ".git")
                 {
                     GitRepository repository = new GitRepository();
                     repository.DirectoryInfo = directory;

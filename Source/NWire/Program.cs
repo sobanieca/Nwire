@@ -9,7 +9,7 @@
         {
             NwireCore core = new NwireCore();
             core.Run();
-            Console.WriteLine("Press ENTER to exit...");
+            Output.WriteLine("Press ENTER to exit...");
             Console.ReadLine();
         }
     }

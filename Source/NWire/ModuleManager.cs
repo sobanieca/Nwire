@@ -8,7 +8,7 @@
     using System.Threading.Tasks;
     using NWire.Modules.Abstract;
 
-    public class ModuleManager
+    internal class ModuleManager
     {
         private static Dictionary<int, NWire.Modules.Abstract.Module> _modules = null;
         private static object _locker = new object();
