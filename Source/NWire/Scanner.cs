@@ -19,6 +19,11 @@
 
         public void ScanDirectory(DirectoryInfo directory, ScanResult scanResult)
         {
+            if (IsGitSubmodule(directory))
+            {
+                return;
+            }
+
             foreach (var file in directory.EnumerateFiles())
             {
                 string fileName = file.Name.ToLower();
@@ -62,6 +67,22 @@
                     ScanDirectory(subdirectory, scanResult);
                 }
             }
+        }
+
+        private bool IsGitSubmodule(DirectoryInfo directory)
+        {
+            foreach (var file in directory.EnumerateFiles())
+            {
+                if (file.Name.ToLower() == ".git")
+                {
+                    using (var sr = file.OpenText())
+                    {
+                        if (sr.ReadToEnd().IndexOf("/modules") != -1)
+                            return true;
+                    }
+                }
+            }
+            return false;
         }
     }
 }
